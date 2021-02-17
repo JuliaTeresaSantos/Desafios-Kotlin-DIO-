@@ -1,0 +1,25 @@
+Há um país denominado Lolipad, todos os habitantes ficam felizes em pagar seus impostos, pois sabem que nele não existem políticos corruptos e os recursos arrecadados são utilizados em benefício da população, sem qualquer desvio. A moeda deste país é o Loli, cujo símbolo é o R$.
+
+Você terá o desafio de ler um valor com duas casas decimais, equivalente ao salário de uma pessoa de Loli. Em seguida, calcule e mostre o valor que esta pessoa deve pagar de Imposto de Renda, segundo a tabela abaixo.
+
+
+fun main(args: Array<String>) {
+    //continue a solução
+    fun Float.format(digits: Int) = "%.${digits}f".format(this).replace(',','.')
+    val r = readLine()!!.toFloat()
+    var i = 0F
+    
+    
+    if (  r <=2000) {
+        i = 0F
+    } else if (r <=3000) {
+        i = (r - 2000 ) * 0.08f
+    } else if (r <= 4500  ) {
+        i = (r - 3000) * 0.18f + 1000 * 0.08f
+    } else if (r > 4500) {
+        i = ( r - 4500 ) * 0.28f + 1500 * 0.18f + 1000 * 0.08f 
+    }
+    if (i == 0F) println("Isento") else println("R$ ${i.format(2)}")
+    
+    
+}
